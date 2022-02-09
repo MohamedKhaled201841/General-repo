@@ -1,0 +1,28 @@
+select public.products.product_id,public.products.product_name,public.categories.category_name
+from public.products join public.categories
+on public.categories.category_id=public.products.product_id
+
+select public.orders.order_id,public.orders.order_date,public.customers.company_name,public.employees.first_name
+from public.customers join public.orders
+on public.orders.customer_id=public.customers.customer_id
+join public.employees
+on public.employees.employee_id=public.orders.employee_id
+
+
+select public.customers.company_name, public.orders.order_id
+from public.customers left join public.orders
+on public.customers.customer_id=public.orders.customer_id
+order by public.customers.company_name
+
+
+select public.orders.order_id,public.employees.first_name
+from public.orders right join public.employees
+on public.orders.employee_id=public.employees.employee_id
+order by public.employees.first_name
+
+
+select public.customers.company_name,public.orders.order_id
+from public.customers full join public.orders
+on public.orders.customer_id=public.customers.customer_id
+
+

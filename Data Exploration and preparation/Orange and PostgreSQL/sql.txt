@@ -1,0 +1,24 @@
+select * 
+from public.products
+
+select * 
+from public.products
+where category_id=1
+
+select * 
+from public.orders
+where order_date between '1996-07-04' and '1996-07-09'
+
+select country, count(customer_id) as Counter
+from public.customers
+group by country
+order by Counter
+
+
+select * 
+from public.customers
+where country='Germany' and  city in ('London', 'Berlin')
+
+select * 
+from public.customers
+where country like 'G%' 

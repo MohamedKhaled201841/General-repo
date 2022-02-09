@@ -1,0 +1,66 @@
+select  country, count(customer_id) as counter
+from public.customers
+group by country
+order by counter desc
+
+select avg(unit_price)
+from public.products
+
+select * 
+from public.products
+where category_id=1
+
+select * 
+from public.orders
+where order_date between '1996-07-04' and '1996-07-07'
+
+select * 
+from public.products
+where product_name like 'I_%'
+
+select * 
+from public.products 
+where category_id in (1,2)
+
+select * 
+from public.customers
+where country='Mexico' and city ='México D.F.'
+
+select * 
+from public.customers
+where city='London' or city='México D.F.'
+
+select * 
+from public.customers
+where city in ('London','México D.F.')
+limit 3
+
+select public.products.product_name,public.products.category_id,public.categories.category_name
+from public.products
+join public.categories
+on public.categories.category_id=public.products.category_id
+
+select public.products.product_name,public.products.category_id,public.categories.category_name
+from public.products, public.categories
+where public.categories.category_id=public.products.category_id
+
+select public.orders.order_id, public.orders.order_date, public.customers.company_name
+from public.orders left join public.customers
+on public.orders.customer_id=public.customers.customer_id
+order by public.customers.company_name
+
+
+
+select public.orders.order_id,public.orders.order_date,public.employees.first_name
+from public.orders right join public.employees
+on public.orders.employee_id=public.employees.employee_id
+order by public.employees.first_name
+
+
+
+
+
+
+
+
+
